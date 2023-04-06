@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id ="daoE" class="dao.Ecran"></bean>
+    <bean id ="daoV" class="dao.VideoProjecteur"></bean>
+    <bean id ="daoC" class="dao.Clavier"></bean>
+    <bean id ="daoS" class="dao.Souris"></bean>
+    <bean id ="daoT" class="dao.TV"></bean>
+    <bean id ="daoH" class="dao.HdmiVgaAdapter">
+        <constructor-arg ref="daoT"></constructor-arg>
+    </bean>
+
+
+    <bean id="MetierUc" class="Metier.UniteCentrale">
+        <constructor-arg ref="daoH"></constructor-arg>
+        <constructor-arg ref="daoS"></constructor-arg>
+    </bean>
+
+
+
+</beans>
